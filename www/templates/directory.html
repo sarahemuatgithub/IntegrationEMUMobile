@@ -1,0 +1,62 @@
+<ion-view view-title="Directory">
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <!--<a class="item item-avatar" ui-sref="home">-->
+        <a class="item item-avatar item-text-wrap">
+            <img ng-src="img/map_app.png">
+            <h2>Directory</h2>
+            <h2>Search for Students and Faculty by name</h2>
+        </a>
+        <form ng-submit="doDirectorySearch()">
+        <div class="item item-input item-button-right">
+            <input type="search" placeholder="Enter name to Search" ng-model="search.term">
+            <!--<button class="button-clear" type="submit">Go!</button>-->
+            <button type="submit"
+                    class="button button-pill button-glass icon icon-right"
+                    style="width: 80px;">Go! <i class="icon icon-right ion-android-checkmark-circle" style="color:lightgreen; text-shadow: 1px 1px 1px #000000;"></i>
+            </button>
+        </div>
+        </form>
+
+        <ion-list>
+            <!--ORIG-->
+<!--            <ion-item ng-repeat="(key, value) in searchResults | groupBy: 'type'">
+                <h2 style="font-weight:bold">{{ key }}</h2>
+                <ion-item ng-repeat="result in value | orderBy : ['fullname']" class="padding">
+                    <div class="div-spanner">
+                    <div class="div-spanner">
+                        {{ result.fullname }}</div>
+                        <span class="indented-dir">{{ result.email }}</span>
+                    </div>
+                </ion-item>
+            </ion-item>-->
+
+            <!--TESTING working DEVL, resource 404 QUAL-->
+            <ion-item ng-repeat="(key, value) in searchResults.entries | groupBy: 'type'">
+
+                <!--<h2 style="font-weight:bold">{{ key }}</h2>-->
+                <h2 style="font-weight:bold">{{ key }}</h2>
+                <!--
+                <ion-item ng-repeat="result in value | orderBy : ['fullname']" class="padding">-->
+                <ion-item ng-repeat="result in value | orderBy : ['lastName', 'firstName']" class="padding">
+                    <div class="div-spanner">
+                        {{ result.displayName }}</div>
+                    <!--display only @emich.edu email addresses, uncomment below-->
+                    <div ng-if="result.email.indexOf('@emich.edu')>-1" class="div-spanner">
+                        <!--<div ng-if="result.email" class="div-spanner">-->
+                        <!--                    <div class="div-spanner">
+                                                {{ result.fullname }}</div>-->
+                                                <span class="indented-dir">{{ result.email }}</span>
+                    </div>
+                </ion-item>
+            </ion-item>
+
+
+
+        </ion-list>
+    </ion-content>
+</ion-view>

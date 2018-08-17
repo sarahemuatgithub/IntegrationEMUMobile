@@ -1,0 +1,48 @@
+<ion-view view-title="Home">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear"  ng-click="authAction()">{{model.authText}}</button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="list list-inset">
+
+      <div class="item item-thumbnail-left item-icon-right item-text-wrap" ng-click="showStudentMenu()">
+        <img ng-src="img/student-icon.png">
+        <h2>Students</h2>
+        <p>Finances, grades, student ID and registration</p>
+        <i ng-if="showLock() == true" class="icon ion-locked"></i>
+      </div>
+
+      <a class="item item-thumbnail-left item-text-wrap" ui-sref="campusmenu">
+        <img ng-src="img/campus.png">
+        <h2>Campus </h2>
+        <p>Maps, directories, important numbers</p>
+      </a>
+	  
+      <a class="item item-thumbnail-left item-text-wrap" ui-sref="qlinkmenu">
+        <img ng-src="img/quick-links.png">
+        <h2>Quick Links </h2>
+        <p>Job Search, Advising Appointments</p>
+      </a>
+	  
+      <a class="item item-thumbnail-left item-text-wrap" ui-sref="newseventsmenu">
+        <img ng-src="img/news_events.png">
+        <h2>News and Events </h2>
+        <p>EMU related news feeds and events</p>
+      </a>
+
+      <a class="item item-thumbnail-left item-text-wrap" ui-sref="socialmenu">
+        <img ng-src="img/social.png">
+        <h2>Social</h2>
+        <p>Share photos, connect to EMU via social media, and more</p>
+      </a>
+
+      <a class="item item-thumbnail-left item-text-wrap" ui-sref="about">
+        <img ng-src="img/about.png">
+        <h2>About</h2>
+        <p>Information about the EMU Mobile App</p>
+      </a>
+
+    </div>
+    <toast></toast>
+  </ion-content>
+</ion-view>

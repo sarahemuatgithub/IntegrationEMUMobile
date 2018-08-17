@@ -1,0 +1,179 @@
+<ion-view title="Registration - Cart">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="goBack()">
+            <i class="ion-arrow-left-c"></i> Back
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="has-header" overflow-scroll="true" direction="y" has-bouncing="true">
+
+        <div class="reg-container">
+
+            <button class="button button-pill button-glass"
+                    ng-click="checkout(model.selectedTerm)">
+                Checkout
+            </button>
+
+            <div class="reg-term-container">
+                <label style="text-align: left; width:40%;" ng-repeat="term in cart_terms">
+                    Term: {{term.name}}
+                </label>
+                <label style="text-align: right; width:60%; float:right;">
+                    (Roster + Cart) Total Credit Hours: {{getTotalCreditHours()}}
+                </label>
+            </div>
+
+
+            <div class="reg-scrollable">
+                <div class="list">
+
+                    <div class="item item-divider item-text-wrap" ng-show="cart_terms.length<1">
+                        Cart Empty: No Courses in Cart and No Registered Courses
+                    </div>
+
+                    <!--CART - UNREGISTERED COURSES-->
+                    <div class="item item-divider" ng-repeat="term in cart_terms">
+                        <div class="item-text-wrap" style="padding:4px; padding-bottom: 10px;">
+                            <h2 style="font-weight:bold;">CART</h2>
+                            <h3>
+                                List of New Classes to Register for Selected Term: {{term.name}}
+                                <br>Press 'X' to Remove from Cart or 'Checkout' to Continue Registration
+                                <br>({{NonRegFilter.length}}) New Classes in Cart to Register<br>
+                            </h3>
+                        </div>
+
+                        <div list ng-show="NonRegFilter.length<1">
+                            <div class="item item-icon-right item-text-wrap"
+                                 style="padding:6px; padding-left: 16px;">
+                                <p style="font-weight:bold; color:red;">
+                                    No Items In Cart
+                                </p>
+                            </div>
+                        </div>
+                        <div list
+                             ng-repeat="cartcourse in term.plannedCourses | filter: {classificationDescription: '!Registered'} as NonRegFilter">
+                            <div class="item item-icon-right item-text-wrap" ng-click="removeFromCart(cartcourse)"
+                                 style="padding:6px; padding-right: 40px; padding-left: 16px;">
+                                <!--NEW-->
+                                <!--<h3>{{cartcourse.courseName}}</h3>-->
+                                <p style="font-weight:bold;">{{cartcourse.courseName}}</p>
+                                <p>Section {{cartcourse.sectionId}}: {{cartcourse.sectionTitle}}</p>
+                                <p>{{cartcourse.scheduleType}} / {{cartcourse.scheduleTypeDescription}}</p>
+                                <p>{{cartcourse.campus}} / {{cartcourse.campusDescription}}</p>
+
+                                <p>Starts: {{ cartcourse.firstMeetingDate | date: 'MM/dd/yyyy'}} - Ends: {{cartcourse.lastMeetingDate | date: 'MM/dd/yyyy'}}</p>
+
+                                <p ng-repeat="location in cartcourse.meetingPatterns">
+                                    Meets:
+                                    {{location.startTime | MilitaryAs12HourTime}}-{{location.endTime | MilitaryAs12HourTime}}
+                                    {{location.daysOfWeek | DOW}}
+                                    {{location.building}} Rm: {{location.room}}
+                                    ({{location.startDate | date: 'MM/dd/yyyy'}} - {{location.endDate | date: 'MM/dd/yyyy'}})
+                                </p>
+
+                                <p ng-repeat="instructor in cartcourse.instructors">
+                                    Instructor(s): {{instructor.formattedName}}
+                                </p>
+
+                                <p>NOTE: Section Availability may close at any time and is only calculated at Registration</p>
+                                <!--<p>{{ cartcourse | openSection }}</p>-->
+                                <!--<p>{{ cartcourse.creditHours}} credit hour(s)</p>-->
+                                <p>{{ cartcourse.credits}} credit hour(s)</p>
+
+                                <!--
+                                &lt;!&ndash;ORIG&ndash;&gt;
+                                {{cartcourse.courseName}}: {{cartcourse.sectionTitle}}</p>
+                                <p>Section {{cartcourse.sectionId}}</p>
+                                <p>{{cartcourse | classMeetups}}</p>
+                                <p>Credits: {{cartcourse.credits}}</p>
+                                -->
+
+
+
+
+
+
+                                <p ng-if="cartcourse.classificationDescription!='Registered'"
+                                   style="color:red; font-weight: bold;">
+                                    In Cart: Not Registered</p>
+                                <i ng-if="cartcourse.classificationDescription!='Registered'"
+                                   class="icon ion-close-round"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END CART - UNREGISTERED COURSES-->
+
+                    <!--CLASS ROSTER LIST - REGISTERED COURSES-->
+                    <div class="item item-divider" ng-repeat="term in cart_terms">
+                        <div class="item-text-wrap" style="padding:6px;">
+                            <h2 style="font-weight:bold;">CLASS ROSTER</h2>
+                            <h3>
+                                List of Currently Registered Courses
+                                <br>Compare with Cart for Day or Time Conflicts
+                                <br>({{RegFilter.length}}) Currently Registered Classes in Roster for Selected Term:
+                                {{term.name}}<br>
+                            </h3>
+                        </div>
+                        <div list ng-show="RegFilter.length<1">
+                            <div class="item item-icon-right item-text-wrap"
+                                 style="padding:6px; padding-left: 16px;">
+                                <p style="font-weight:bold; color:green;">
+                                    No Courses Currently Registered
+                                </p>
+                            </div>
+                        </div>
+                        <div list
+                             ng-repeat="cartcourse in term.plannedCourses | filter: {classificationDescription: 'Registered'} as RegFilter">
+                            <div class="item item-icon-right item-text-wrap"
+                                 style="padding:6px; padding-left: 16px;"><p style="font-weight:bold;">
+
+                                <!--NEW-->
+                                <h3>{{cartcourse.courseName}}</h3>
+                                <p>Section {{cartcourse.sectionId}}: {{cartcourse.sectionTitle}}</p>
+                                <p>{{cartcourse.scheduleType}} / {{cartcourse.scheduleTypeDescription}}</p>
+                                <p>{{cartcourse.campus}} / {{cartcourse.campusDescription}}</p>
+
+                                <p>Starts: {{ cartcourse.firstMeetingDate | date: 'MM/dd/yyyy'}} - Ends: {{cartcourse.lastMeetingDate | date: 'MM/dd/yyyy'}}</p>
+
+                                <p ng-repeat="location in cartcourse.meetingPatterns">
+                                    Meets:
+                                    {{location.startTime | MilitaryAs12HourTime}}-{{location.endTime | MilitaryAs12HourTime}}
+                                    {{location.daysOfWeek | DOW}}
+                                    {{location.building}} Rm: {{location.room}}
+                                    ({{location.startDate | date: 'MM/dd/yyyy'}} - {{location.endDate | date: 'MM/dd/yyyy'}})
+                                </p>
+
+                                <p ng-repeat="instructor in cartcourse.instructors">
+                                    Instructor(s): {{instructor.formattedName}}
+                                </p>
+
+                                <!--<p>NOTE: Section Availability may close at any time and is only calculated at Registration</p>-->
+                                <!--<p>{{ cartcourse | openSection }}</p>-->
+                                <!--<p>{{ cartcourse.creditHours}} credit hour(s)</p>-->
+                                <p>{{ cartcourse.credits}} credit hour(s)</p>
+
+
+                                <!--
+                                ORIG
+                                {{cartcourse.courseName}}: {{cartcourse.sectionTitle}}</p>
+                                <p>Section {{cartcourse.sectionId}}</p>
+                                <p>{{ cartcourse | classMeetups}}</p>
+                                <p>Credits: {{cartcourse.credits}}</p>
+                                -->
+
+                                <p ng-if="cartcourse.classificationDescription=='Registered'"
+                                   style="color:green; font-weight: bold;">
+                                    Currently {{cartcourse.classificationDescription}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--END CLASS ROSTER LIST-->
+
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>
+

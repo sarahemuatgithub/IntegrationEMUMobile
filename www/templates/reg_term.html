@@ -1,0 +1,19 @@
+<!--popover for select term on Registration - Search-->
+<ion-popover-view>
+    <ion-header-bar>
+        <h1 class="title">Select Term</h1>
+    </ion-header-bar>
+
+    <ion-radio
+        ng-repeat="term in terms"
+        ng-value="term"
+        ng-checked="search.selectedTerm"
+        ng-click="updateSelectedTerm(search.selectedTerm)"
+        ng-model="search.selectedTerm">
+
+            {{term.name}}
+            <!--{{term.id}} / {{term.name}}-->
+
+    </ion-radio>
+
+</ion-popover-view>

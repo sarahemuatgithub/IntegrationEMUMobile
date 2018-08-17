@@ -1,0 +1,31 @@
+<ion-view view-title="Financials">
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item item-avatar">
+                <img src="img/finance1.png">
+                <h2>Finances</h2>
+            </div>
+            <div class="item item-divider">
+                Current Balance
+            </div>
+            <div class="item">
+                {{balance  | currency}}
+            </div>
+            <!--<div class="item item-divider">
+                Transactions
+            </div>
+            <div ng-if="transactions.length == 0" class="item" >
+                No transactions found.
+            </div>
+            <div ng-if="transactions.length > 0" class="item" ng-repeat="transaction in transactions">
+                <p>{{transaction.entryDate | asDate | date:'MM/dd'}}</p>
+                <p>{{transction.description}} - {{transaction.amount}}</p>
+            </div>-->
+        </div>
+    </ion-content>
+</ion-view>

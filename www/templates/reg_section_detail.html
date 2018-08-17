@@ -1,0 +1,52 @@
+<ion-view title="Registration - Section Detail">
+    <ion-content class="has-header">
+
+        <div style="clear:both; position: relative;padding:5px; margin-top:4px; margin-bottom:6px; margin-right: 4px; margin-left: 4px; background:#ffffff; border:1px solid lightgrey; color:gray">
+            <label ng-model="search.selectedTerm">
+                Term: {{search.selectedTerm.name}}<br>
+            </label>
+        </div>
+
+        <div class="card">
+
+            <div class="item item-divider">
+                {{currentSection.courseName}}: Section {{currentSection.sectionId}}<br>
+                {{currentSection.sectionTitle}}
+            </div>
+
+            <div class="item item-text-wrap">
+                <p>{{currentSection.scheduleType}} / {{currentSection.scheduleTypeDescription}}</p>
+                <p>{{currentSection.campus}} / {{currentSection.campusDescription}}</p>
+                <p>Starts: {{ currentSection.firstMeetingDate | date: 'MM/dd/yyyy'}} - Ends: {{currentSection.lastMeetingDate | date: 'MM/dd/yyyy'}}</p>
+                <p ng-repeat="location in currentSection.meetingPatterns">
+                    Meets:
+                    {{location.startTime | MilitaryAs12HourTime}}-{{location.endTime | MilitaryAs12HourTime}}
+                    {{location.daysOfWeek | DOW}}
+                    {{location.building}} Rm: {{location.room}}
+                    ({{location.startDate | date: 'MM/dd/yyyy'}} - {{location.endDate | date: 'MM/dd/yyyy'}})
+                </p>
+                <p ng-repeat="instructor in currentSection.instructors">
+                    Instructor(s): {{instructor.formattedName}}
+                </p>
+                <p>{{ currentSection | openSection }}</p> <!--seats filled-->
+                <p>
+                    {{currentSection.creditHours}} credit hour(s)
+                </p>
+            </div>
+
+            <div class="item">
+                <div>
+                    <button ng-click="addToCart(currentSection)"
+                            class="button button-pill button-glass icon icon-right"
+                            style="width: 140px;">Add To Cart <i class="icon icon-right ion-android-add" style="color:lightgreen; text-shadow: 1px 1px 1px #000000;"></i>
+                    </button>
+                    <button ng-click="closeDetail()"
+                            class="button button-pill button-glass"
+                            style="width: 110px;">Close <i class="icon icon-right ion-android-cancel" style="color:lightcoral; text-shadow: 1px 1px 1px #000000;"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

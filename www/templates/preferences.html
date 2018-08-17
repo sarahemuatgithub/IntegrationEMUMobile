@@ -1,0 +1,44 @@
+<ion-view view-title="My Preferences">
+  <ion-nav-bar class="bar-emu">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img src="img/preferences-icon.png">
+        <h2>Preferences</h2>
+      </div>
+
+      <div class="item item-body">
+        <p>
+          <button class="button button-primary button-block " ng-click="checkForUpdates()">
+            Check for updates
+          </button>
+
+          <button class="button button-stable button-block button-pulse" ng-if="hasUpdate" ng-click="doUpdate()">
+            Download update
+          </button>
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Likes
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

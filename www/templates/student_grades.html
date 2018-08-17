@@ -1,0 +1,41 @@
+<ion-view view-title="Student Grades">
+  <ion-nav-bar class="bar-emu">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list card">
+
+      <div class="item item-avatar">
+        <img src="img/grades.png">
+
+        <h2>Grades</h2>
+      </div>
+      <label class = "item item-input item-select">
+        <div class = "input-label">
+          Select Term
+        </div>
+
+        <!--<button ng-click='openPopover($event)'>go</button>-->
+        <select ng-model="selectedTerm" ng-options="term.name for term in terms">
+        </select>
+
+      </label>
+        <div class="item" ng-repeat="term in terms | filter:{name:selectedTerm.name}" >
+            <div class="item" ng-repeat="section in term.sections">
+
+                <div class="item item-divider item-text-wrap">
+                  <p>{{section.sectionTitle}} - {{section.courseName}} : {{section.courseSectionNumber}}</p>
+                </div>
+                <div class="list" ng-repeat="grade in section.grades">
+                  <div class="item">
+                    <p>{{grade.type}} - {{grade.name}} : {{grade.value}}</p>
+                    <p>{{grade.updated| asDate | date:'MMMM dd, yyyy'}} </p>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

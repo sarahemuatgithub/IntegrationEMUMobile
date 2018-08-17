@@ -1,0 +1,32 @@
+  <ion-view title='Campus Menu'>
+
+    <ion-nav-bar class="bar-emu">
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
+  <ion-content>
+    <div class="list list-inset">
+
+      <div class="item item-thumbnail-left item-icon-right item-text-wrap" ng-click="showDirectory()">
+        <img ng-src="img/directory.png">
+        <h2>Directory</h2>
+        <p>Search for Students and Faculty by name</p>
+        <i ng-if="!loggedIn()" class="icon ion-locked"></i>
+      </div>
+
+      <a class="item item-thumbnail-left" ui-sref="importantnumbers">
+        <img ng-src="img/numbers.png">
+        <h2>Important Numbers</h2>
+        <p>Must-know campus numbers</p>
+      </a>
+
+      <a class="item item-thumbnail-left" ui-sref="maps">
+        <img ng-src="img/map_app.png">
+        <h2>Maps</h2>
+        <p>Find buildings on campus</p>
+      </a>
+
+    </div>
+  </ion-content>
+</ion-view>

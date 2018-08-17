@@ -1,0 +1,53 @@
+<ion-modal-view>
+    <ion-content>
+        <div class="list list-inset">
+            <div style="clear:both; position: relative;padding:5px; margin-top:4px; margin-bottom:6px; margin-right: 4px; margin-left: 4px; background:#ffffff; border:1px solid lightgrey; color:gray">
+                <label>
+                    Registration Results<br>
+                </label>
+                <label>
+                    Term: {{term.name}}<br>
+                </label>
+            </div>
+            <div class="list" style="margin: 4px !important;">
+                <ion-item ng-if="status.messages.length > 0" ng-repeat="success in status.successes">
+                    {{success.sectionId}}:{{success.courseName}} registered as {{success.action}}
+                    <p ng-repeat="message in success.messages">
+                        {{message}}
+                    </p>
+                </ion-item>
+                <ion-item ng-repeat= "success in status.successes">
+                    {{success.sectionId}}:{{success.courseName}} registered as {{success.action}}
+                    <p ng-repeat="message in success.messages">
+                        {{message}}
+                    </p>
+                </ion-item>
+                <ion-item ng-repeat="failure in status.failures">
+                    Unable to add course {{failure.sectionId}}:{{failure.courseName}}
+                    <p ng-repeat="message in failure.messages">
+                        {{message.message}}
+                    </p>
+                </ion-item>
+
+                <ion-item>
+<!--                    <button ng-click="closeModal(1)">
+                        Close
+                    </button>-->
+                    <button ng-click="closeModal(1)"
+                            class="button button-pill button-glass"
+                            style="width: 110px;">Close <i class="icon icon-right ion-android-cancel" style="color:lightcoral; text-shadow: 1px 1px 1px #000000;"></i>
+                    </button>
+
+                    <!--Eligibility and Alt-Pin Check Here-->
+<!--                    <button class="buttons" id="#element"
+                            ng-click='openPopover($event)'>
+                        Enter Alt-Pin
+                    </button>-->
+
+                </ion-item>
+            </div>
+
+
+        </div>
+    </ion-content>
+</ion-modal-view>

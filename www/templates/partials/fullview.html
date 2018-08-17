@@ -1,0 +1,17 @@
+<div class="list">
+    <label class="item item-input item-select">
+        <div class="input-label">
+            Select Term
+        </div>
+        <!--<button ng-click='openPopover($event)'>go</button>
+        <label>{{selectedTerm.name}}</label>-->
+
+        <select ng-model="selectedTerm" ng-options="term.name for term in terms">
+        </select>
+    </label>
+    <div class="item" ng-repeat="term in terms | filter:{name:selectedTerm.name}">
+        <div class="item item-text-wrap" ng-repeat="section in term.sections">
+            <p>{{section.courseName}} : {{section.sectionTitle}} </p>
+        </div>
+    </div>
+</div>

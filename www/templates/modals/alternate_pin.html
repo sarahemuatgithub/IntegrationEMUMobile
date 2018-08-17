@@ -1,0 +1,129 @@
+<!--<ion-popover-view class="popoverCentered">-->
+
+
+<ion-modal-view >
+    <ion-content overflow-scroll="true" direction="y" has-bouncing="false">
+        <!--<ion-modal-view >-->
+        <div class="reg-container">
+            <div>
+                <div style="padding:5px; margin:4px;">
+
+                    <div class = "item item-divider">
+                    <span style="font-weight: bold; font-size: 200%; color:black; display: block; text-align: center;">
+                        Alternate Pin
+                    </span>
+                    </div>
+
+                    <!--<label style="display: block; text-align: center;">
+                        <h3>Alternate Pin</h3>
+                    </label>-->
+                </div>
+
+                <!--<ion-header-bar>
+                    <h1 class="title">Alternate Pin</h1>
+                </ion-header-bar>-->
+
+                <!--<div style="padding:10px; border-bottom: 1px solid lightgrey;">-->
+                <div style="padding:5px;">
+                <span style="font-weight: bold;">Students with Priority Registration, enter your Alternate PIN to access
+                    registration:
+                </span>
+
+                    <div>
+                        <div style="padding: 5px; margin:5px;">
+                        <span style="font-style:italic;" ng-if="currentPin">Please enter a valid pin.<br>
+                    Current Pin: {{currentPin}}</span>
+
+                            <span style="font-style:italic;" ng-if="!currentPin">please enter new pin</span>
+
+                        </div>
+
+                        <input class="glowing-border"
+                               type="text"
+                               placeholder="enter pin here"
+                               ng-model="altpin.value"
+                               style="padding: 10px; background-color:lightgray; width:210px; margin:5px; line-height: 2em;
+                       ">
+                        <button ng-click="submitAltPin()"
+                                class="button button-pill button-glass icon icon-right"
+                                style="width: 110px;">Submit <i class="icon icon-right ion-android-checkmark-circle" style="color:lightgreen; text-shadow: 1px 1px 1px #000000;"></i>
+                        </button>
+                        <button ng-click="cancelAltPin()"
+                                class="button button-pill button-glass"
+                                style="width: 110px;">Cancel <i class="icon icon-right ion-android-cancel" style="color:lightcoral; text-shadow: 1px 1px 1px #000000;"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div style="overflow-y:scroll; height:90%; position: relative; padding:10px;">
+
+                <div style="border-bottom: 1px solid lightgrey;">
+                    <ul style="padding-left:10px;">
+                        <li type="disc">Athletes who do not know their Alternate PIN should contact the SASS Office at
+                            734-487-2233.
+                        </li>
+                        <li type="disc">Graduate Assistants - enter PIN 123456</li>
+                        <li type="disc">Honors students with earned hours of:</li>
+                        <ul style="padding-left:20px;">
+                            <li type="square">0-59 - enter PIN 555555</li>
+                            <li type="square">60 & up - enter PIN 666666</li>
+                        </ul>
+                        <li type="disc">Students with disabilities - enter PIN 777777. For information, contact the
+                            Disabilities Resource
+                            Center at 734-487-2470
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div style="padding:10px; border-bottom: 1px solid lightgrey;">
+                    <i style="font-weight: bold;">Advising is mandatory for the students indicated below. Contact the following to schedule an advising
+                        session:</i>
+                    <ul style="padding-left:10px;">
+                        <li type="disc">New undergraduate freshmen, transfer, or second bachelor students - contact the
+                            University Advising
+                            and Career Development Center (UACDC) at 734-487-0400.
+                        </li>
+                        <li type="disc">First semester freshmen, including Honors & Athletes - contact one of the offices
+                            below:
+                        </li>
+                        <ul style="padding-left:20px;">
+                            <li type="square">Athletes: SASS Office, 734-487-1283</li>
+                            <li type="square">Honors: Honors College, 734-487-0341</li>
+                            <li type="square">All other first year freshmen should contact:
+                                <ul style="padding-left:30px;">
+                                    <li type="circle">UACDC (open to all students), 734-487-0400</li>
+                                    <li type="circle">College of Arts & Sciences, Majors & Undeclared Students,
+                                        734-487-4599
+                                    </li>
+                                    <li type="circle">College of Business, Intents, 734-487-2344</li>
+                                    <li type="circle">College of Education, Intents, 734-487-1416</li>
+                                    <li type="circle">College of Health & Human Service, Intents and Majors, 734-487-0918
+                                    </li>
+                                    <li type="circle">College of Technology, Majors, 734-487-8659</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <li type="disc">High School Dual Enrolled Students - contact Extended Programs at 734-487-0407</li>
+                        <li type="disc">Early College Alliance (ECA) program admits - contact the ECA Office at
+                            734-487-4290
+                        </li>
+                        <li type="disc">First semester freshmen who wish to withdraw from a class must contact UACDC at
+                            734-487-0400
+                        </li>
+                        <li type="disc">Students with an academic standing of "probation" should contact UACDC or the
+                            college advising
+                            center for their major (see above).
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!--</ion-popover-view>-->
+    </ion-content>
+</ion-modal-view>

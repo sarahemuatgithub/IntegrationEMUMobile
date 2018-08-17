@@ -1,0 +1,85 @@
+<ion-view view-title="<img class='title-image' src='img/emuicon.png" side='center' height='85%'/>">
+
+<ion-nav-bar class="bar-emu">
+
+    <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+
+    <ion-nav-buttons side="right">
+        <!--this will open a popover that can have a selectable list for WALKING or DRIVING directions -->
+        <button class="button button-clear button-icon icon ion-arrow-move" ng-click="openPopover($event)">
+            Directions
+        </button>
+        <!-- this will check for current gps location using location services -->
+        <button class="button button-clear button-icon icon ion-compass" ng-click="myLocation()">
+            My Location
+        </button>
+
+    </ion-nav-buttons>
+
+</ion-nav-bar>
+
+<ion-content overflow-scroll="true" direction="y" has-bouncing="true">
+
+    <div id="mySidenav" class="sidenav">
+
+        <div class="item-input-inset top-header">
+            <input type="text" placeholder="Click to Search Buildings" ng-model="search.name"
+                   style="width:100%; padding-left:5px;">
+        </div>
+
+        <div class="main-content">
+            <ion-list>
+                <ion-item class="item no-padding" ng-repeat="item in itemsList | filter:search  "
+                          ng-click="bldgListClick(item)">
+                    {{$index+1}}.) {{item.name}}
+                </ion-item>
+            </ion-list>
+        </div>
+
+        <div class="bottom-footer" ng-click="closeNav()">
+            <button class="button button-clear ion-close-round" style="font-size: 18px; bottom:3px;" ng-click="openNav()">
+                Close Buildings
+            </button>
+
+        </div>
+
+    </div>  <!--end sidenav-->
+
+    <div id="wrapper-map">
+
+        <div>
+            <!--<a class="item item-avatar" ui-sref="home">-->
+            <a class="item item-avatar item-text-wrap">
+                <img ng-src="img/map_app.png" style="top: calc(50% - 20px) !important;">
+                <h3>
+                1. Select "My Location"<br>
+                2. Select a destination - select any Red Marker or any building from Search Buildings<br>
+                3. Select "Directions" and choose Walking or Driving
+                </h3>
+                <!--<h2>Campus Map</h2>
+                <p>Wherever you go, there you are.</p>-->
+            </a>
+        </div>
+
+        <!-- google map canvas - can't be inside other div, unless height/width 100% -->
+        <div id="map">
+        </div>
+
+        <div class="bottom-footer" style="background-color: #236B3D;">
+            <button class="button button-clear ion-navicon-round" style="font-size: 18px; bottom:3px;"
+                    ng-click="openNav()">
+                Search Buildings
+            </button>
+<!--            <button id="GeoButton" class="button button-clear" style="color: lightgrey; float:right; font-size: 18px; bottom:3px;"
+                    ng-click="toggleGeolocation()">Geolocation <i id="powerbutton" class="ion-minus-circled" style="color:indianred; font-size: 18px;text-shadow: 2px 1px #000000;"></i>
+                &lt;!&ndash;need popup to warn of increased battery use&ndash;&gt;
+            </button>-->
+        </div>
+
+    </div>  <!-- end wrapper-map -->
+
+</ion-content>
+
+</ion-view>

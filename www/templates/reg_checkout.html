@@ -1,0 +1,119 @@
+<ion-view title="Registration - Checkout">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="goBack()">
+            <i class="ion-arrow-left-c"></i> Back
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="has-header" overflow-scroll="true" direction="y" has-bouncing="true">
+
+        <div class="reg-container">
+
+            <!--<button class="button button-pill button-glass"
+                    ng-click="registerCourses()">-->
+
+            <!--conditional click, only allow registration if planCouses has new classes to Register-->
+            <button class="button button-pill button-glass"
+                    ng-click="planCourses.length>0 && checkRegister()"> <!--TESTING-->
+                Register
+            </button>
+
+            <div class="reg-term-container">
+                <label style="text-align: left; width:40%;">
+                    Term: {{term.name}}
+                </label>
+
+                <label style="text-align: right; width:60%; float:right;">
+                    (Cart Checkout) Total Credit Hours: {{checkoutTotalHours()}}
+                </label>
+
+            </div>
+            <div class="reg-term-container">
+                Press "Cart" or "Back" to return to Cart/Class Roster view<br>
+            </div>
+            <!--            <div style="clear:both; position: relative;padding:10px; margin-top:10px; margin-bottom:10px; background:#ffffff; border:1px solid lightgrey; color:gray">
+
+                            <label style="text-align: left; width:40%;" ng-repeat="term in cart_terms">
+                                Term: {{term.name}}
+                            </label>
+                            <label style="text-align: right; width:40%;">
+                                Total Credit Hours: {{getTotalCreditHours()}}
+                            </label>
+
+                        </div>-->
+            <!--<div class="list" style="margin: 4px !important;">-->
+            <div class="reg-scrollable">
+
+                <!--<h1>Checkout List</h1>-->
+
+                <div class = "item item-divider item-text-wrap">
+                <span style="font-weight: bold; font-size: 200%; color:black;">
+                    Checkout List
+                </span>
+                </div >
+
+                <!--Term: {{term.name}}-->
+                <!--<p>Slide selection to left to change registration option</p>-->
+                <!--<ion-list style="padding: 2px !important;">-->
+                    <ion-list>
+                        <div ng-hide="planCourses.length" class="item item-text-wrap">
+                            No New Classes to Register</div>
+
+                    <ion-item ng-repeat="course in planCourses">
+                        <div class = "item-text-wrap">
+                        <!--<h2>{{course.sectionId}}: {{course.courseName}}</h2>-->
+
+                        <p style="font-weight:bold;">
+                            {{course.courseName}}</p>
+                        <p>Section {{course.sectionId}}: {{course.sectionTitle}}</p>
+
+                        <p>{{course.scheduleType}} / {{course.scheduleTypeDescription}}</p>
+                        <p>{{course.campus}} / {{course.campusDescription}}</p>
+
+                        <!--<p>{{ course | classMeetups}}</p>-->
+                        <!--<p>Credits: {{course.credits}}</p>-->
+
+
+                        <p>Starts: {{ course.firstMeetingDate | date: 'MM/dd/yyyy'}} - Ends: {{course.lastMeetingDate | date: 'MM/dd/yyyy'}}</p>
+
+                        <p ng-repeat="location in course.meetingPatterns">
+                            Meets:
+                            {{location.startTime | MilitaryAs12HourTime}}-{{location.endTime | MilitaryAs12HourTime}}
+                            {{location.daysOfWeek | DOW}}
+                            {{location.building}} Rm: {{location.room}}
+                            ({{location.startDate | date: 'MM/dd/yyyy'}} - {{location.endDate | date: 'MM/dd/yyyy'}})
+                        </p>
+
+                        <p ng-repeat="instructor in course.instructors">
+                            Instructor(s): {{instructor.formattedName}}
+                        </p>
+
+                        <p>NOTE: Section Availability may close at any time and is only calculated at Registration</p>
+
+                        <p>{{ course.credits}} credit hour(s)</p>
+
+                        <!--<ion-option-button class="button-positive"
+                                           ng-click="setRegType(course,'Add')">
+                            Add
+                        </ion-option-button>
+                        <ion-option-button class="button-info"
+                                           ng-click="setRegType(course,'Audit')">
+                            Audit
+                        </ion-option-button>
+                        <ion-option-button ng-show="course.onlyPassNoPass" class="button-info"
+                                           ng-click="setRegType(course,'PassFail')">
+                            Pass/Fail
+                        </ion-option-button>-->
+                        </div>
+                    </ion-item>
+
+                    <!--<ion-item>
+                        <button ng-click="registerCourses()">
+                            Register
+                        </button>
+                    </ion-item>-->
+
+                </ion-list>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

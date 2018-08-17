@@ -1,0 +1,41 @@
+<ion-modal-view>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                {{section.sectionId}}:{{section.title}}
+                <button ng-click="closeModal()">
+                    Close
+                </button>
+            </div>
+            <div class="item item-text-wrap">
+                <h2>{{section.summary}}</h2>
+                <br>
+
+                <p>{{currentEvent.description}}</p>
+            </div>
+            <div class="item">
+                <div ng-repeat="instructor in section.instructors">
+                    <h2>Instructor(s)</h2>
+                    <p>Instructor: {{instructor.formattedName}}</p>
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-calendar"></i>
+                    Bookmark
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Waitlist
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Notify Me
+                </a>
+            </div>
+            <button ng-click="addToCart(section)">
+                Register
+            </button>
+        </div>
+    </ion-content>
+</ion-modal-view>

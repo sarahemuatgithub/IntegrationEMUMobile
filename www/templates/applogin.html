@@ -1,0 +1,29 @@
+<ion-view view-title="Application Login">
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content scroll="false">
+        <section class="login-container">
+            <!--<form ng-submit="login()"> fires twice if using this -->
+            <form ng-submit=""> <!--using for so return works from keyboard used for chrome not needed for app-->
+                <div class="col header text-center">
+                    <img src="./img/emich_logo3.png" class="logo"/>
+                </div>
+                <label class="item item-input">
+                    <input type="text" placeholder="Username" ng-model="credentials.username" autocapitalize="none">
+                </label>
+                <label class="item item-input">
+                    <input type="password" placeholder="Password" ng-model="credentials.password">
+                </label>
+
+                <div class="button-bar">
+                    <button class="button submit button-clear button-dark" ng-click="login()">Login</button>
+                    <button type="button" class="button button-clear button-dark" ng-click="gohome()">Cancel</button>
+                </div>
+            </form>
+        </section>
+        <toast></toast>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view view-title="<img class='title-image' src='img/emuicon.png" side='center' height='85%'/>">
+<!--<ion-view view-title="truEMU">-->
+  <ion-nav-bar class="bar-emu">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+
+    <!--<a class="item item-avatar" ui-sref="home">-->
+    <a class="item item-avatar">
+      <img ng-src="img/numbers.png">
+
+      <h2>Important Numbers</h2>
+      <p>List of important campus numbers</p>
+    </a>
+    
+    <div class="list">
+      <div class="card" ng-repeat="number in numberList">
+        <div class="item item-divider" style="background: #f0f9f0; border: 1px solid lightgrey;">
+          {{number.name}}
+        </div>
+        <div class="item item-text-wrap item-button-right">
+          <!--<a ng-href="tel: {{number.phone}}" class="button button-outline button-positive">Call</a>-->
+          <a href="#" ng-click="triggerCall('{{number.phone}}')" class="button button-outline button-positive">Call</a>
+          <p>{{number.category}}</p>
+
+          <p>{{number.phone}}</p>
+
+          <p>{{number.email}}</p>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

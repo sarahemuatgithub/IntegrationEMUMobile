@@ -1,0 +1,53 @@
+  <ion-view title='Student Menu' class="padding">
+    <ion-nav-bar class="bar-emu">
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+    </ion-nav-bar>
+  <ion-content>
+
+    <div class="list list-inset">
+      <a class="item item-thumbnail-left" ui-sref="studentgrades">
+        <img ng-src="img/grades.png">
+        <h2>Grades</h2>
+        <p>For all current courses</p>
+      </a>
+      <a class="item item-thumbnail-left" ui-sref="studentcourses">
+        <img ng-src="img/classroom.png">
+        <h2>Courses</h2>
+        <p>Current and past courses</p>
+      </a>
+      <a class="item item-thumbnail-left" ui-sref="studentfinancials">
+        <img ng-src="img/finance1.png">
+
+        <h2>Finances</h2>
+        <p>{{description}}: {{balance | currency}}</p>
+      </a>
+      <div ng-click="canRegister()" class="item item-thumbnail-left item-text-wrap">
+        <img ng-src="img/registration.png">
+
+        <h2>Registration</h2>
+        <p>Search for courses and register for current or next term.</p>
+
+        <!--p>Registration is current</p-->
+      </div>
+
+      <div ng-click="" class="item item-thumbnail-left item-text-wrap">
+        <img ng-src="img/drop_unavailable.png">
+
+        <h2>Drop Courses</h2>
+        <p>Drop Course functionality is unavailable.  Please use Self-Service at <strong>my.emich.edu</strong> to drop courses.</p>
+
+        <!--p>Registration is current</p-->
+      </div>
+
+      <!--div class="item item-thumbnail-left" ng-click="notImplemented()">
+        <img src="img/student_id.png">
+
+        <h2>Student ID</h2>
+
+        <p>Request new or replacement ID</p>
+      </div>
+    </div-->
+  </ion-content>
+</ion-view>

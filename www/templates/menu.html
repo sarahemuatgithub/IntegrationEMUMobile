@@ -1,0 +1,19 @@
+<ion-popover-view>
+    <ion-header-bar>
+        <h1 class="title">Select Directions</h1>
+    </ion-header-bar>
+
+    <ion-radio ng-repeat="item in DirectionList"
+               ng-model="item.checked"
+               ng-click="updateSelection(item.text)"
+               name="DirectionListItems">
+
+        <div ng-if="item.text.indexOf('Walking')>-1" class="icon ion-android-walk">
+            {{ item.text }}
+        </div>
+        <div ng-if="item.text.indexOf('Driving')>-1" class="icon ion-android-car">
+            {{ item.text }}
+        </div>
+    </ion-radio>
+
+</ion-popover-view>

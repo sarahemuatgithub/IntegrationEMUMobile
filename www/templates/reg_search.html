@@ -1,0 +1,63 @@
+<ion-view title="Registration - Search">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="goBack()">
+            <i class="ion-arrow-left-c"></i> Back
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="has-header" overflow-scroll="true" direction="y" has-bouncing="true">
+
+        <!--container-->
+        <!--<div style="width: 100%; height: 100%; padding: 10px; display: flex; flex-direction: column;flex-wrap: nowrap; ">-->
+        <div class="reg-container">
+            <!--search header-->
+            <!--<div style="flex-shrink: 0;">  &lt;!&ndash;use this for the top anchor&ndash;&gt;-->
+            <!--<div>  &lt;!&ndash;use this for the top anchor&ndash;&gt;-->
+
+            <button class="button button-pill button-glass"
+                    ng-click='openPopover($event)'>
+                Select Term
+            </button>
+
+            <div class="reg-term-container">
+                Term:
+                <!--<label style="float:right; text-align: right" ng-model="search.selectedTerm">-->
+                <label style="" ng-model="search.selectedTerm">
+                    {{search.selectedTerm.name}}  <!--this works-->
+                </label>
+            </div>
+
+            <div class="reg-term-container" style="background: #f5f5f5">
+            <form ng-submit="doSearch()">
+                <div class="item item-input item-button-right">
+                    <i class="icon ion-search placeholder-icon"></i>
+                    <input type="search" placeholder="Enter Course Name to Search" ng-model="search.searchText">
+                    <!--<button type="submit" style="margin-right:10px">Go!</button>-->
+                    <button type="submit"
+                            class="button button-pill button-glass icon icon-right"
+                            style="width: 80px;">Go! <i class="icon icon-right ion-android-checkmark-circle" style="color:lightgreen; text-shadow: 1px 1px 1px #000000;"></i>
+                    </button>
+                </div>
+            </form>
+            </div>
+            <!--</div>-->
+
+            <!--recent searches-->
+            <div ng-if="search.recentSearches.length > 0"
+                 class="reg-scrollable">
+
+                <ion-list>
+                    <div class = "item item-divider">
+                        <span style="font-weight: bold; font-size: 200%; color:black;">Recent Searches</span>
+                    </div>
+                    <!--<ion-item style="text-decoration: underline;">Recent Searches</ion-item>-->
+                    <ion-item ng-repeat="recentSearch in search.recentSearches"
+                              ng-click="repeatSearch(recentSearch)">
+                        {{recentSearch}}
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

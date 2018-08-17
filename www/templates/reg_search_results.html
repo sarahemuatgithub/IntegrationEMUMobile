@@ -1,0 +1,65 @@
+<ion-view title="Registration - Cart">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="goBackToSearch()">
+            <i class="ion-arrow-left-c"></i> Back
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="has-header" overflow-scroll="true" direction="y" has-bouncing="true">
+
+        <div class="reg-container">
+
+            <button class="button button-pill button-glass"
+                    ng-click="go('reg.search')">
+                New Search
+            </button>
+
+            <div class="reg-term-container">
+
+                <label style="text-align: left; width:40%;" ng-model="search.selectedTerm">
+                    Term: {{search.selectedTerm.name}}
+                </label>
+<!--                <label style="text-align: right; width:60%; float:right;">
+                    (Roster + Cart) Total Credit Hours: {{getTotalCreditHours()}}
+                </label>-->
+
+            </div>
+
+            <div class="reg-scrollable">
+                <div class="list">
+                    <div class="item item-divider" ng-repeat="(key,values) in courseSections">
+                        <h3>{{key}}</h3>
+                        <div class="item item-icon-right item-text-wrap" ng-repeat="section in values"
+                             ng-click="showSectionDetail(section)">
+                            <p>Section {{section.sectionId}}: {{section.sectionTitle}}</p>
+                            <p>{{section.scheduleType}} / {{section.scheduleTypeDescription}}</p>
+                            <p>{{section.campus}} / {{section.campusDescription}}</p>
+
+                            <!--<p>{{ section.firstMeetingDate | date: 'MM/dd/yyyy'}} - {{section.lastMeetingDate | date: 'MM/dd/yyyy'}}</p>-->
+                            <p>Starts: {{ section.firstMeetingDate | date: 'MM/dd/yyyy'}} - Ends: {{section.lastMeetingDate | date: 'MM/dd/yyyy'}}</p>
+
+                            <!--<p>{{ section | classMeetups}}</p>-->
+                            <p ng-repeat="location in section.meetingPatterns">
+                                Meets:
+                                {{location.startTime | MilitaryAs12HourTime}}-{{location.endTime | MilitaryAs12HourTime}}
+                                {{location.daysOfWeek | DOW}}
+                                {{location.building}} Rm: {{location.room}}
+                                ({{location.startDate | date: 'MM/dd/yyyy'}} - {{location.endDate | date: 'MM/dd/yyyy'}})
+                            </p>
+
+                            <p ng-repeat="instructor in section.instructors">
+                                Instructor(s): {{instructor.formattedName}}
+                            </p>
+
+                            <p>{{ section | openSection }}</p>
+                            <p>{{ section.creditHours}} credit hour(s)</p>
+                            <i class="icon ion-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </ion-content>
+</ion-view>

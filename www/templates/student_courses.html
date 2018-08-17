@@ -1,0 +1,34 @@
+<ion-view view-title="Courses">
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <!--TODO: add focused tabs for courses, below introduces some strange behavior-->
+    <!--TODO: in the browser and android, look at registrationtabs and do similar-->
+    <!--<ion-tabs style="height:50px;">
+        <ion-tab title="Schedule" on-select="setView('dailyview')">
+        </ion-tab>
+        <ion-tab title="History" on-select="setView('fullView')">
+        </ion-tab>
+    </ion-tabs>-->
+
+    <div class="bar bar-subheader">
+        <div class="button-bar">
+            <a class="button" ng-click="setView('dailyview')">Schedule</a>
+            <a class="button" ng-click="setView('fullView')">History</a>
+        </div>
+    </div>
+    <ion-content class="has-subheader">
+
+        <div class="list">
+            <div class="item item-avatar">
+                <img ng-src="img/classroom.png">
+
+                <h2>Courses</h2>
+            </div>
+            <div ng-include=getActiveView()></div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<ion-modal-view>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                <button ng-click="closeModal()">
+                    Close
+                </button>
+                <span class="item-note">
+                {{currentFeed.postDate | asDate | date:'MM/dd/yyyy h:mm a'}}
+                    </span>
+
+            </div>
+            <div class="item item-text-wrap">
+                <h2>{{currentFeed.title}}</h2>
+                <br>
+
+                <div class="angular-with-newlines">{{currentFeed.content}}</div>
+            </div>
+            <!--div class="item tabs tabs-secondary tabs-icon-left">
+              <a class="tab-item" href="#">
+                <i class="icon ion-share"></i>
+                Share
+              </a>
+            </div-->
+        </div>
+    </ion-content>
+</ion-modal-view>

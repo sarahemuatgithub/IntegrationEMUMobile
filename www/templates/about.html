@@ -1,0 +1,111 @@
+<ion-view view-title="About">
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list card">
+
+            <div class="item item-avatar">
+                <img ng-src="img/about.png">
+                <h2>About</h2>
+            </div>
+
+            <div class="profile" style="padding: 5px;">
+                <!--http://stackoverflow.com/questions/27549134/angularjs-ng-src-condition-if-not-found-via-url-->
+                <!-- allows ng-src to catch any error, not just 404; bonus is no CSP needed -->
+
+                <div ng-if="platform()=='PROD'">
+                    <!--PROD-->
+                    <img class="profile-picture" ng-if="user.imageId"
+                         ng-src="https://elluciangoprod.emich.edu/banner-mobileserver/api/2.0/image/{{user.imageId}}"
+                         onerror="this.src='img/default_user.png'"/>
+                    <img class="profile-picture" ng-if="!(user.imageId)"
+                         ng-src="img/default_user.png"
+                         onerror="this.src='img/default_user.png'"/>
+                </div>
+
+                <div ng-if="platform()=='QUAL'">
+                    <!--QUAL-->
+                    <img class="profile-picture" ng-if="user.imageId"
+                         ng-src="https://elluciangoqual.emich.edu/banner-mobileserver/api/2.0/image/{{user.imageId}}"
+                         onerror="this.src='img/default_user.png'"/>
+                    <img class="profile-picture" ng-if="!(user.imageId)"
+                         ng-src="img/default_user.png"
+                         onerror="this.src='img/default_user.png'"/>
+                </div>
+
+                <!--DEVL may not be set up to use images, Xtender DEVL?-->
+                <div ng-if="platform()=='DEVL'">
+                    <!--DEVL-->
+                    <img class="profile-picture" ng-if="user.imageId"
+                         ng-src="https://elluciangotest.emich.edu/banner-mobileserver/api/2.0/image/{{user.imageId}}"
+                         onerror="this.src='img/default_user.png'"/>
+                    <img class="profile-picture" ng-if="!(user.imageId)"
+                         ng-src="img/default_user.png"
+                         onerror="this.src='img/default_user.png'"/>
+                </div>
+
+                <h3 style="padding: 5px;">{{user.username}}</h3>
+            </div>
+
+            <div class="item item-body" ng-if="platform()!='PROD'">
+                <p>EMU Mobile {{AppVersion}} on {{platform()}}</p>
+                <p>for internal testing only</p>
+                <p>{{hostName.data.hostName}}</p>
+                <!--<p ng-hide="AppVersion == null">VERSION config.xml v.{{AppVersion}}</p>-->
+            </div>
+            <div class="item item-body" ng-if="platform()=='PROD'">
+                <p >EMU Mobile v.{{AppVersion}}</p>
+            </div>
+            
+            <div class="item item-body">
+                <p>Eastern Michigan University</p>
+                <p>900 Oakwood Street</p>
+                <p>Ypsilanti, MI, USA 48197</p>
+            </div>
+
+            <div class="item item-body">
+                <a class="link"
+                   onclick="window.open('https://www.emich.edu/privacy/', '_blank', 'location=yes', 'closebuttoncaption=Done','toolbar=yes','toolbarposition=top')">
+                    Privacy Policy
+                </a>
+
+                <br>
+                <a class="link"
+                   onclick="window.open('https://www.emich.edu/emumobile/', '_blank', 'location=yes', 'closebuttoncaption=Done','toolbar=yes','toolbarposition=top')">
+                    Support URL
+                </a>
+
+
+<!--
+
+                <br>
+                <a href ="http://wlsqual:8180/StudentApi/api/registration-section-detail?courseReferenceNumber=21348&term=201720">clicky 1</a>
+<br>
+                <a href ="https://elluciangoqual.emich.edu/banner-mobileserver/api/2.0/registration-section-detail?courseReferenceNumber=21348&term=201720">clicky 2</a>
+<br>
+                <a href="http://wlsqual:8180/StudentApi/api/account-balances/E01568452">clicky 3</a>
+<br>
+                <a href="https://elluciangotest.emich.edu/banner-mobileserver/api/2.0/registration/E01568452/termsSD/201720/crn/21705">new clicky</a>
+-->
+
+
+
+                <!-- used for testing only - REMOVE FOR PRODUCTION -->
+                <!--
+                                <a class="link" style="position: absolute; right: 20px; text-align: right;" ui-sref="test">
+                                    Test
+                                </a>
+                -->
+
+            </div>
+
+            <!--<div class="item item-body">
+              <a href="http://www.emich.edu/privacy/">Privacy Policy</a>
+            </div>-->
+
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,8 @@
+{
+  "name": "emuMobile",
+  "app_id": "cc1afb5e",
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
+  ]
+}

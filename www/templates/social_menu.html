@@ -1,0 +1,42 @@
+<ion-view title='Social Menu'>
+
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list list-inset">
+
+
+            <!-- change _blank to _system to open in external browser -->
+            <a class="item item-thumbnail-left item-text-wrap"
+               onclick="window.open('https://www.facebook.com/Eastern.Michigan.University/', '_blank', 'location=yes', 'closebuttoncaption=Done','toolbar=yes','toolbarposition=top')">
+                <img ng-src="img/facebook.png">
+                <h2>Facebook </h2>
+                <p>Connect to EMU with Facebook</p>
+            </a>
+
+            <a class="item item-thumbnail-left item-text-wrap"
+               onclick="window.open('https://www.instagram.com/easternmichigan/', '_blank', 'location=yes', 'closebuttoncaption=Done','toolbar=yes','toolbarposition=top')">
+                <img ng-src="img/instagram.png">
+                <h2>Instagram</h2>
+                <p>Connect to EMU with Instagram</p>
+            </a>
+
+            <a class="item item-thumbnail-left item-text-wrap"
+               onclick="window.open('https://twitter.com/EMU_Swoop/', '_blank', 'location=yes', 'closebuttoncaption=Done','toolbar=yes','toolbarposition=top')">
+                <img ng-src="img/twitter.png">
+                <h2>Twitter </h2>
+                <p>Connect to EMU with Twitter</p>
+            </a>
+
+
+            <!--<a class="item item-thumbnail-left" ui-sref="#">
+              <img ng-src="img/photogallery.png">
+              <h2>Photo Gallery</h2>
+              <p>Share campus photos with your friends and family</p>
+            </a>-->
+        </div>
+    </ion-content>
+</ion-view>

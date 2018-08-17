@@ -1,0 +1,21 @@
+<ion-view view-title="Schedules">
+  <ion-nav-bar class="bar-emu">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-arrow-left-c"></i> Back
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="item  item-select">
+      <select ng-model="selectedfeed">
+        <option ng-repeat="name in feeds" value="{{name}}">{{name}}</option>
+      </select>
+    </div>
+    <div class="list card">
+      <div class="item item-avatar item-text-wrap" ng-repeat="item in currentfeed" ng-click="showFeedDetail(item)">
+        <img src="{{item.opponentlogo.value}}">
+        <h2>{{item.title.value}}</h2>
+        <p>{{item.startdate.value | asDate | date:'h:mm a'}}  {{item.location.value}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

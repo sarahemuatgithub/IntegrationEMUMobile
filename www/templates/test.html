@@ -1,0 +1,108 @@
+<ion-view view-title="Test">
+
+    <ion-nav-bar class="bar-emu">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-arrow-left-c"></i> Back
+        </ion-nav-back-button>
+
+    </ion-nav-bar>
+
+
+    <ion-content content-scroll="false">
+
+
+        Test Area
+
+        <br>
+        button to simulate error
+        <p></p>
+
+        <button>
+            Error
+        </button>
+<!--
+
+        <div id="content-wrapper-side" style="
+        position: relative;
+        background-color: blue;
+        /*margin: 0 auto;*/  /*this will center the divs*/
+        left:0;
+        right:0;
+        width: 300px;
+        height:100%;">
+
+            &lt;!&ndash;this is what is screwing up positioning&ndash;&gt;
+            <div>
+                <a class="item item-avatar" ui-sref="home">
+                    <img ng-src="img/map_app.png">
+                    <h2>Campus Map</h2>
+                    <p>Wherever you go, there you are.</p>
+                </a>
+            </div>
+
+
+            &lt;!&ndash;why does this get ignored???&ndash;&gt;
+            <div id="top-header" style="
+            background: cadetblue;
+            height: 105px;  /*this height is the 30 + height of above ???*/
+            width: 100%;
+            postion: absolute;">
+                HEADER
+            </div>
+
+            <div id="main-content" style="
+            overflow-x:hidden;
+            background-color: lightgreen;
+            top:105px;  /* as the height of the other div is 30px */
+            left:0;
+            right:0;
+            bottom:30px;
+            position:absolute;
+            width: 100%;">
+
+                <ion-list>  &lt;!&ndash;may not need ion-list if I can make item clickable&ndash;&gt;
+                <ion-item ng-repeat="results in resultSet" class="padding">
+                    <pre>{{ results.name }}</pre>
+                </ion-item>
+                </ion-list>
+
+
+            </div>&lt;!&ndash; end main-content &ndash;&gt;
+
+            <div id="bottom-footer" style="
+            background: cadetblue;
+            height: 30px;
+            bottom:0;
+            position: absolute;  /*fit to width of parent container*/
+            width: 100%;">
+                FOOTER
+            </div>  &lt;!&ndash;end bottom footer&ndash;&gt;
+
+        </div>&lt;!&ndash; end content-wrapper &ndash;&gt;
+
+-->
+
+
+
+
+
+
+        <!--    <h2>Animated Sidenav Example</h2>
+            <p>Click on the element below to open the side navigation menu.</p>
+            <span style="font-size:30px;cursor:pointer" ng-click="openNav()">&#9776; open</span>-->
+
+        <!--    <ion-list>
+              <ion-item ng-repeat="(key, value) in searchResults | groupBy: 'type'">
+                <h2 style="font-weight:bold">{{ key }}</h2>
+                <ion-item ng-repeat="result in value | filter:search " class="padding">
+                  <pre>{{ result.displayName }}</pre>
+                  <div ng-if="result.email">
+                  <pre><span class="indented">{{ result.email }}</span></pre>
+                  </div>
+                </ion-item>
+              </ion-item>
+            </ion-list>-->
+
+
+    </ion-content>
+</ion-view>

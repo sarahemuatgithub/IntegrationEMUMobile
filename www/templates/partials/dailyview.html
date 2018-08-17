@@ -1,0 +1,19 @@
+<div class="list">
+    <div class="item">Class schedule next 7 days</div>
+    <div class="item" ng-repeat="courseDay in coursesDays">
+        <!--<h2>{{coursesDay.date | asDate | date:'EEE MMM dd'}}</h2>--> <!--day of the week - off by one-->
+        <h2>{{courseDay.date | date:'EEEE - MMMM dd, yyyy'}}</h2> <!--day of the week - working-->
+
+        <p ng-if="courseDay.coursesMeetings.length == 0">No classes meet on this date</p>
+        <div class="item item-text-wrap" ng-repeat="courseMeeting in courseDay.coursesMeetings">
+            {{courseMeeting.courseName}} : {{courseMeeting.sectionTitle}}<br>
+            {{courseMeeting.building}} Rm: {{courseMeeting.room}} - {{courseMeeting.start | date:'h:mm a'}}
+        </div>
+
+<!--        <p ng-if="coursesDay.coursesMeetings.length == 0">No classes meet on this date</p>
+        <div ng-if="courseMeeting.length > 0" class="item item-text-wrap" ng-repeat="courseMeeting in coursesDay.coursesMeetings">
+            <p >{{courseMeeting.courseName}} : {{courseMeeting.sectionTitle}} </p>
+        </div>-->
+
+    </div>
+</div>

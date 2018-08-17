@@ -1,0 +1,18 @@
+<ion-view title="Registration - Status">
+    <ion-content>
+        <div class="list list-inset">
+            <ion-item ng-repeat="success in response.successes">
+                {{success.sectionId}}:{{success.courseName}} registered as {{success.action}}
+                <p ng-repeat="message as success.messages">
+                    {{message}}
+                </p>
+            </ion-item>
+            <ion-item ng-repeat="failure in response.failures">
+                Unable to add course {{failure.sectionId}}:{{failure.courseName}}
+                <p ng-repeat="message as failure.messages">
+                    {{message}}
+                </p>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>
