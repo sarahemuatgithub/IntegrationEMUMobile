@@ -114,4 +114,26 @@
         <variable name="XWALK_MULTIPLEAPK" value="true" />
     </plugin>
     <plugin name="com.lampa.startapp" spec="^6.1.6" />
+      <config-file platform="ios" target="*-Info.plist" parent="CFBundleURLTypes">
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>edu.emich.emumobileapp</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>emumobileapp</string>
+            </array>
+        </dict>
+    </array>
+</config-file>
+
+<config-file platform="ios" target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>emumobileapp</string>
+                  <string>twitter</string>
+                    <string>blackboard</string>
+            </array>
+</config-file>
 </widget>
