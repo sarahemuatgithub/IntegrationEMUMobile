@@ -4,7 +4,7 @@ angular.module('emuMobile.controllers', ['ngCordova'])
     var appId = "";
   
       var appId, appStarter = "";
-      alert(ionic.Platform);
+
       $ionicPlatform.ready(function() {
       if (ionic.Platform.isAndroid()) {
           // plugin com.lampa.startapp
@@ -19,7 +19,6 @@ angular.module('emuMobile.controllers', ['ngCordova'])
       } else {
           if (ionic.Platform.isIOS() || ionic.Platform.isIPad()) {
               appId = 'blackboard://';
-         
               appStarter = startApp.set(appId);
               appStarter.start(function(msg) {
                   console.log('starting BB app: ' + msg);                
